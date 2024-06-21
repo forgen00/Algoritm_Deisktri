@@ -5,7 +5,7 @@ int DistanceMinimum(Path path) {
 
 	for (int i = 0; i < VerticesAmount; i++) {
 		if (path.Visited[i] == 0 && path.Dist[i] <= minimum) {
-			minimum = path.Visited[i];
+			minimum = path.Dist[i];
 			min_index = i;
 		}
 	}
@@ -19,7 +19,7 @@ void PrintSolution(Path path) {
 		printf("%d \t\t %d\n", i, path.Dist[i]);
 }
 
-void Algorithm_Dijkstra(int graph[VerticesAmount][VerticesAmount], int StartVertice) {
+void Algorithm_Deikstri(int graph[VerticesAmount][VerticesAmount], int StartVertice) {
 	Path path;
 
 	for (int i = 0; i < VerticesAmount; i++) {
@@ -34,8 +34,9 @@ void Algorithm_Dijkstra(int graph[VerticesAmount][VerticesAmount], int StartVert
 		path.Visited[U] = 1;
 
 		for (int V = 0; V < VerticesAmount; V++)
-			if (path.Visited[V] == 0 && graph[U][V] && path.Dist[U] != INT_MAX && path.Dist[U] + graph[U][V] < path.Dist[V])
+			if (path.Visited[V] == 0 && graph[U][V] && path.Dist[U] != INT_MAX && path.Dist[U] + graph[U][V] < path.Dist[V]) {
 				path.Dist[V] = path.Dist[U] + graph[U][V];
+			}
 	}
 
 	PrintSolution(path);

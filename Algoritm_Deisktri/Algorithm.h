@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <limits.h>
 
-#define VerticesAmount 9
+#define VerticesAmount 8
 
 typedef struct Path {
 	int Dist[VerticesAmount];
@@ -12,4 +12,4 @@ typedef struct Path {
 
 int DistanceMinimum(Path path);
 void PrintSolution(Path path);
-void Algorithm_Dijkstra(int graph[VerticesAmount][VerticesAmount], int StartVertice);
+void Algorithm_Deikstri(int graph[VerticesAmount][VerticesAmount], int StartVertice);
